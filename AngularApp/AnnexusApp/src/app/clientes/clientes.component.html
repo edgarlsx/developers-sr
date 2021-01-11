@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+      <div class="col align-self-center">
+        <div class="card">
+            <div class="card-header">
+              Cadastrar Clientes
+            </div>
+            <div class="card-body">
+              <blockquote class="card-text">
+                <form (ngSubmit)="cadastrarCliente()">
+                    <!-- <form [formGroup]="formGroup" (ngSubmit)="cadastrarCliente()"> -->
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="nome" id="nome" aria-label="Nome" placeholder="Nome" [(ngModel)]="cliente.nome">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="cpf" id="cpf" aria-label="CPF" placeholder="CPF" [(ngModel)]="cliente.cpf" onkeypress="$(this).mask('000.000.000-00');">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="dataCadastro" id="dataCadastro" aria-label="dataCadastro" placeholder="Data do Cadastro" [(ngModel)]="cliente.dataCadastro" onkeypress="$(this).mask('2021-01-15');">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="telefone" id="telefone" aria-label="telefone" placeholder="Telefone" [(ngModel)]="cliente.telefone" onkeypress="$(this).mask('(00) 00000-0000');">
+                        </div>
+                        <div class="input-group mb-3">
+                            <select id="grupoClientesId" name="grupoClientesId" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected value="1">Grupo 01</option>
+                                <option value="2">Grupo 02</option>
+                              </select>
+                        </div>
+                        <br/>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="button" (click)="cadastrarCliente()" >Salvar</button>
+                        </div>
+                </form>
+              </blockquote>
+            </div>
+        </div>
+    </div>
+   <div class="col align-self-end"></div>
+</div>
+
+
+
+<table class="table table-striped table-hover" >
+    <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">dt Cadastro</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Grupo</th>
+          <th scope="col">Ativo</th>
+          <th scope="col">Açoes</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let cliente of clientes">
+        <tr>
+          <td scope="row">{{cliente.nome}}</td>
+          <td>{{cliente.cpf}}</td>
+          <td>{{cliente.dataCadastro}}</td>
+          <td>{{cliente.telefone}}</td>
+          <td>{{cliente.grupoClientes.nome}}</td>
+          <td>{{cliente.grupoClientes.ativo}}</td>
+          <td><button (click)="atualizarCliente(cliente.id)">Atualizar</button></td>
+          <td><button (click)="deletarCliente(cliente.id)">Atualizar</button></td>
+        </tr>
+    </tbody>
+</table>

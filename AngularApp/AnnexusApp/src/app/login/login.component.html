@@ -1,0 +1,45 @@
+<div style="height: 150px;"></div>
+  <div class="container align-middle">
+      <div class="row">
+        <div class="col align-self-start"></div>
+        <div class="col align-self-center">
+          <div class="card">
+              <div class="card-header">
+                Login de Usuário
+              </div>
+              <div class="card-body">
+                <blockquote class="card-text">
+                      <form [formGroup]="formGroup" (ngSubmit)="loginProces()">
+                          <div class="input-group mb-3">
+                              <input type="user" formControlName="userName" id="userName" class="form-control" aria-label="Usuario" placeholder="Seu Usuário">
+                          </div>
+                          <div class="input-group">
+                              <input type="password" formControlName="userPass" id="password" class="form-control" aria-label="Senha" placeholder="Sua Senha">
+                          </div>
+                          <br/>
+                          <div class="d-grid gap-2">
+                              <button class="btn btn-primary" type="submit">Entrar</button>
+                          </div>
+                      </form>
+                </blockquote>
+              </div>
+          </div>
+      </div>
+      <div class="col align-self-end"></div>
+    </div>
+</div>
+<div style="height: 150px;"></div>
+<div class="card colapse align-bottom">
+    <div class="card-header alert-danger">
+      Note
+    </div>
+    <div class="card-body">
+      <blockquote class="card-text">
+        <p>Estou utilizando o bootstrap pois,
+            alguns componentes do material estão com erro na importação no Angular@11.
+        </p><p>
+            Testados: FlexLayoutModule, matCard, MatButton.
+        </p>
+      </blockquote>
+    </div>
+</div>
